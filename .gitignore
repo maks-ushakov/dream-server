@@ -1,0 +1,5 @@
+*node-modules/*
+*.data
+*.env
+*.vscode
+*.idea
