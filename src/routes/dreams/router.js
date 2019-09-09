@@ -1,4 +1,6 @@
 var express = require('express');
+const { body } = require('express-validator');
+// const { sanitizeBody } = require('express-validator');
 
 var router = express.Router();
 
@@ -19,7 +21,7 @@ router.get('/getDreams', function(request, response) {
   });
 });
 
-router.post('/postDreams', function(request, response) {
+router.post('/postDreams', [body('dream').not().isEmpty().trim().escape()],function(request, response) {
   const dream = new Dream(request.body.dream);
   dream.create();
   response.send('ok');
