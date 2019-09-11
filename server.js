@@ -23,6 +23,7 @@ app.use(function(req, res, next) {
 var db = require('./src/db');
 var routes = require('./src/routes')
 app.use('/', routes.dreams);
+app.use('/admin', routes.admin);
 
 // listen for requests :)
 var listener = app.listen(process.env.PORT || 4000, function() {
