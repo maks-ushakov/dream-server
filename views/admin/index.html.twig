@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<h2>Dreams:</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Dream</th>
+      <th>Created</th>
+      <th>Operations</th>
+    </tr>
+  </thead>
+<tbody>
+  {% for dream in dreams %}
+  <tr>
+    <td>{{ dream.id }}</td>
+    <td>{{ dream.dream }}</td>
+    <td>{{ dream.created }}</td>
+    <td>
+      <a href="/admin/dreams/{{ dream.id}}">View</a>
+    </td>
+  </tr>
+  {% endfor %}
+</tbody>
+</table>
+
+
+{% endblock %}

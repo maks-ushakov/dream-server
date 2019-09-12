@@ -4,7 +4,12 @@
 // init project
 var express = require('express');
 var bodyParser = require('body-parser');
+const {twig} = require('twig');
 var app = express();
+
+app.set('view engine', 'twig');
+app.set('views', './views');
+
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // we've started you off with Express, 

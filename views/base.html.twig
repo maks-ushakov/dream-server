@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, maximum-scale=1, target-densityDPI=device-dpi">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="shortcut icon" href="https://cdn.hyperdev.com/us-east-1%3A52a203ff-088b-420f-81be-45bf559d01b1%2Ffavicon.ico" type="image/x-icon"/>
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+        <link href="/css/style.css" rel="stylesheet" type="text/css">
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+      <div class="container">
+          <header>
+              <h1>Dream Portal</h1>
+          </header>
+          <section id="about">
+            {% block body %}{% endblock %}
+          </section>
+          <footer>
+              <a href="https://github.com/maks-ushakov/dream-server">
+                  <i class="fa fa-github"></i>
+              </a>
+          </footer>
+      </div>
+      {% block javascripts %}{% endblock %}
+    </body>
+</html>

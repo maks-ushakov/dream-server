@@ -1,0 +1,104 @@
+/* styles */
+/* called by your view template */
+
+/****** Main Styling ******/
+
+body {
+	font:18px/26px 'Roboto', sans-serif;
+	color: #222;
+	background-color: #ECF0F1;
+}
+
+/* General reset */
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	box-sizing: border-box;
+}
+h1,h2, h3, 
+h4, h5, h6, p {
+	margin: 0;
+}
+ul, ol {
+	margin: 0;
+	padding:0;
+	list-style: none;
+	list-style-position: inside;
+}
+img {
+	border-style: none;
+	display: block;
+}
+a {
+	color: #f7955b;
+	text-decoration: none;
+}
+a:hover {text-decoration: underline;}
+
+/* layout styles */
+.container {
+	max-width: 800px;
+	min-width: 310px;
+	margin: 10px auto;
+	background: #fff;
+}
+
+section {
+	padding: 10px;
+	margin: 0 0 1em;
+}
+.footer {
+	margin-top: 60px;
+}
+
+h1 {
+	margin: 0 0 16px;
+}
+
+h2 {
+	margin: 0 0 12px;
+}
+
+ol li {
+	list-style-type: decimal;
+	margin-bottom: .75em;	
+}
+
+code {
+	font-family: 'Courier New', 'Nimbus MonoL', monospace;
+	display: inline-block;
+	padding: 12px 16px;
+	background: #eed;
+	max-width: 100%;
+	overflow: auto;
+	margin-left: 1em;
+	margin-bottom: .75em;
+}
+pre {
+	font-family: 'Courier New', 'Nimbus MonoL', monospace;
+}
+
+footer {
+	text-align: right;
+	padding: 6px 30px;
+	background: #ddf;
+}
+footer a {
+	font-size: 32px;
+	color: #000;
+}
+header {
+	padding: 12px;
+	text-align: center;
+	background: #8d8;
+	font-weight: bold;
+	text-shadow: 1px 1px 1px rgba(255,255,255, .8);
+}
+/****** Logo Div Styling ******/
+
+img {
+	margin: 20px auto 0 auto;
+	display: block;
+}

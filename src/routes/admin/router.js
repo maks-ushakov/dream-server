@@ -9,7 +9,20 @@ const Admin = require('../../controllers').Admin;
 
 // http://expressjs.com/en/starter/basic-routing.html
 router.get('/', function(request, response) {
-  response.sendFile(request.rootPath + '/views/admin.html');
+  // response.sendFile(request.rootPath + '/views/admin.html');
+  const admin = new Admin();
+  admin.getAll(function(err, dreams) {
+    if (!!err) {
+      response.render('error.html.twig', {
+        error: err,
+      })
+      return;
+    }
+    response.render('admin/index.html.twig', {
+      message: "Twig from Express",
+      dreams: dreams,
+    })
+  });
 });
 
 // endpoint to get all the dreams in the database
