@@ -8,7 +8,7 @@ const Admin = require('../../controllers').Admin;
 
 
 // http://expressjs.com/en/starter/basic-routing.html
-router.get('/', function(request, response) {
+router.get('/', isAdmin, function(request, response) {
   // response.sendFile(request.rootPath + '/views/admin.html');
   const admin = new Admin();
   admin.getAll(function(err, dreams) {
@@ -27,29 +27,36 @@ router.get('/', function(request, response) {
 
 // endpoint to get all the dreams in the database
 // currently this is the only endpoint, ie. adding dreams won't update the database
-router.get('/dreams', function(request, response) {
+router.get('/dreams', isAdmin, function(request, response) {
   const admin = new Admin();
   admin.getAll(function(err, rows) {
     response.send(JSON.stringify(rows));
   });
 });
 
-router.post('/dreams', [body('dream').not().isEmpty().trim().escape()],function(request, response) {
+router.post('/dreams', [body('dream').not().isEmpty().trim().escape(), isAdmin],function(request, response) {
   const dream = new Admin(request.body.dream);
   dream.create();
   response.send('ok');
 });
 
-router.delete('/dreams/:id', function(request, response) {
+router.delete('/dreams/:id', isAdmin, function(request, response) {
   const dream = new Admin(request.body.dream);
   dream.remove(request.params.id);
   response.send('ok');
 });
 
-router.delete('/dreams', function(request, response) {
+router.delete('/dreams', isAdmin, function(request, response) {
   const dream = new Admin(request.body.dream);
   dream.drop();
   response.send('ok');
 });
+
+function isAdmin(req, res, next) {
+  if (!!req.session.role && req.session.role === 'admin') {
+    return next();
+  }
+  res.redirect('/');
+}
 
 module.exports = router;

@@ -5,7 +5,15 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 const {twig} = require('twig');
+var session = require('express-session');
 var app = express();
+
+var sessionConfig = {
+  secret: 'secret',
+  cookie: {
+    maxAge: 1000 * 60 * 60, // 1 hour 
+  } 
+}
 
 app.set('view engine', 'twig');
 app.set('views', './views');
@@ -17,6 +25,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // http://expressjs.com/en/starter/static-files.html
 app.use(express.static('public'));
+app.use(session(sessionConfig));
 
 // set rootPath
 // http://qaru.site/questions/34821/determine-project-root-from-a-running-nodejs-application/254012#254012
@@ -29,6 +38,7 @@ var db = require('./src/db');
 var routes = require('./src/routes')
 app.use('/', routes.dreams);
 app.use('/admin', routes.admin);
+app.use('/auth', routes.auth);
 
 // listen for requests :)
 var listener = app.listen(process.env.PORT || 4000, function() {
