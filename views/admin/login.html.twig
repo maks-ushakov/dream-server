@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body%}
+
+<div>
+  <form action="/auth/login" method="POST">
+    <div>
+      <div class="form-row">
+        <input type="text" id="auth-username" placeholder="Login name" name="username">
+      </div>
+      <div class="form-row">
+        <input type="password" id="auth-pass" placeholder="Password" name="password">
+      </div>
+      <div class="form-row">
+        <input type="Submit" value="Log in">
+      </div>
+    </div>
+  </form>
+
+</div>
+
+{% endblock %}
