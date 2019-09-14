@@ -9,7 +9,7 @@ var session = require('express-session');
 var app = express();
 
 var sessionConfig = {
-  secret: 'secret',
+  secret: process.env.SECRET_KEY,
   cookie: {
     maxAge: 1000 * 60 * 60, // 1 hour 
   } 
