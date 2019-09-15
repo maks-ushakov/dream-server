@@ -1,6 +1,16 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+  {% if messages %}
+    <div class="messages">
+      {% for message in messages.error %}
+        <div class="message message-error">{{ message }}</div>
+      {% endfor %}
+        {% for message in messages.info %}
+        <div class="message message-info">{{ message }}</div>
+      {% endfor %}
+    </div>
+  {% endif %}
 
 <h2>Dreams:</h2>
 <table class="table">

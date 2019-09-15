@@ -19,7 +19,10 @@ router.get('/', isAdmin, function(request, response) {
       return;
     }
     response.render('admin/index.html.twig', {
-      message: "Twig from Express",
+      messages: {
+        error: request.flash('error'),
+        info: request.flash('info'),
+      },
       dreams: dreams,
     })
   });
@@ -56,6 +59,7 @@ function isAdmin(req, res, next) {
   if (!!req.session.role && req.session.role === 'admin') {
     return next();
   }
+  req.flash('error', 'You should log in to get access for this part');
   res.redirect('/auth/login');
 }
 

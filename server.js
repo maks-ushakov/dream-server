@@ -6,6 +6,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 const {twig} = require('twig');
 var session = require('express-session');
+var flash = require('connect-flash');
 var app = express();
 
 var sessionConfig = {
@@ -26,6 +27,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // http://expressjs.com/en/starter/static-files.html
 app.use(express.static('public'));
 app.use(session(sessionConfig));
+app.use(flash());
 
 // set rootPath
 // http://qaru.site/questions/34821/determine-project-root-from-a-running-nodejs-application/254012#254012

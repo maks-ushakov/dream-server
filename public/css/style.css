@@ -102,3 +102,17 @@ img {
 	margin: 20px auto 0 auto;
 	display: block;
 }
+
+.message {
+	padding: .25em 1em;
+	border-radius: 4px;
+	margin: 0 0 .25em;
+}
+
+.message-error {
+	background: #c99;
+}
+
+.message-info {
+	background: #9c9;
+}
