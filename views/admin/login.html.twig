@@ -1,33 +1,53 @@
-{% extends 'base.html.twig' %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, maximum-scale=1, target-densityDPI=device-dpi">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    {% block stylesheets %}{% endblock %}
+  </head>
+  <body class="login-page">
+  {% block body%}
+  {% if messages %}
+  <div class="messages">
 
-{% block body%}
-{% if messages %}
-<div class="messages">
-
-  {% for message in messages.error %}
-    <div class="message message-error">{{ message }}</div>
-  {% endfor %}
-    {% for message in messages.info %}
-    <div class="message message-info">{{ message }}</div>
-  {% endfor %}
-  </div>
-{% endif %}
-
-<div>
-  <form action="/auth/login" method="POST">
-    <div>
-      <div class="form-row">
-        <input type="text" id="auth-username" placeholder="Login name" name="username">
-      </div>
-      <div class="form-row">
-        <input type="password" id="auth-pass" placeholder="Password" name="password">
-      </div>
-      <div class="form-row">
-        <input type="Submit" value="Log in">
-      </div>
+    {% for message in messages.error %}
+      <div class="message message-error">{{ message }}</div>
+    {% endfor %}
+      {% for message in messages.info %}
+      <div class="message message-info">{{ message }}</div>
+    {% endfor %}
     </div>
-  </form>
+  {% endif %}
+<div class="wrapper">
+  <div class="login-form">
+    <form action="/auth/login" method="POST">
+      <div>
+        <div class="form-row">
+          <input type="text" id="auth-username" placeholder="Login name" name="username">
+        </div>
+        <div class="form-row">
+          <input type="password" id="auth-pass" placeholder="Password" name="password">
+        </div>
+        <div class="form-row">
+          <input type="Submit" value="Log in">
+        </div>
+      </div>
+    </form>
 
-</div>
+  </div>
 
-{% endblock %}
+  {% endblock %}
+      <footer>
+        <a href="https://github.com/maks-ushakov/dream-server">
+            <i class="fa fa-github"></i>
+        </a>
+      </footer>
+    </div>
+    {% block javascripts %}{% endblock %}
+  </body>
+</html>

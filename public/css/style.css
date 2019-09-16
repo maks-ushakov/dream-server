@@ -2,11 +2,15 @@
 /* called by your view template */
 
 /****** Main Styling ******/
+html {
+	height: 100%;
+}
 
 body {
 	font:18px/26px 'Roboto', sans-serif;
 	color: #222;
 	background-color: #ECF0F1;
+	margin: 0;
 }
 
 /* General reset */
@@ -115,4 +119,30 @@ img {
 
 .message-info {
 	background: #9c9;
+}
+
+.wrapper {
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+	height: 100%;
+}
+
+.login-page {
+	height: 100%;
+}
+
+.login-form {
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.login-form form {
+	max-width: 300px;
+}
+
+.login-page .messages {
+	position: absolute;
 }
